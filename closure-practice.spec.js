@@ -1,14 +1,11 @@
 describe('Closure Practice', function () {
 
 	describe('outerFunc', function () {
-		it('preserveScope should exist', function () {
+		it('preserveScope should be assigned', function () {
 			expect(preserveScope).toBeDefined();
 		})
 		it('preserveScope should be a function', function () {
 			expect(preserveScope).toEqual(jasmine.any(Function));
-		})
-		it('preserveScope should be the result of invoking the outer function', function () {
-			expect(JSON.stringify(preserveScope)).toEqual(JSON.stringify(outerFunc()));
 		})
 		it('preservedScope should equal scopeToSave', function () {
 			expect(preservedScope).toEqual("Preserve This!")

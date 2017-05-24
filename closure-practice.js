@@ -16,7 +16,9 @@ function outerFunc() {
   }
 }
 // Code here
+var preserveScope;
 
+var preservedScope;
 
 
 // 2. Friend Greeter 
@@ -51,6 +53,8 @@ Your return object should look like the following:
 {date: Tue May 23 2017 22:31:45 GMT-0500 (Central Daylight Time), calls: 1}
 
 */ 
+
+// Code here 
 function dateFuncCreator() {
   var count = 0;
 
@@ -61,12 +65,6 @@ function dateFuncCreator() {
 
 var getDate;
 
-// function dateFuncCreator() {
-//   var count = 0;
-//   return function() {
-//     return {date: new Date(), calls: ++count}
-//   }
-// }
 
 // 4. Score Tracker
 
