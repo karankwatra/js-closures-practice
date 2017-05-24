@@ -82,6 +82,11 @@ function scoreTrackerCreator() {
 /* 
 Create a function clled familyPlanTrackerCreator. This function accepts two arguments, an array of names and a number of total minutes. 
 
+Create a family object which includes a total property with a value equal to the total minutes passed in. 
+
+Add a property to the family object for each name in the names array. (The property name will be the name of the family member.) Assign each of these properties a value of 0 (because they haven't used any minutes yet.)
+
+Return a function which accepts the name of a family member and the number of minutes used by that family member. Update the family object by adding the minutes to that family member's minutes used (the property of the family object with that member's name) and by subtracting the minutes used from the total minutes remaining (the total property of the family object).
 */
 
 function familyPlanTrackerCreator() {
