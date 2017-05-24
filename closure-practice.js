@@ -22,9 +22,9 @@ function outerFunc() {
 // 2. Friend Greeter 
 
 /* 
-Create a greeterMaker function called which takes in a friend's name and returns a function to greet the friend on the current day.
+Create a greeterMaker function called which takes in a friend's name and returns a function to greet the friend.
 
-For example, the outer function, greeterMaker, return an inner function for each friend, like Dave. This inner function will output something like, "Hi Dave! It's Thursday, May 25 today."  
+For example, the outer function, greeterMaker, return an inner function for each friend, like Dave. This inner function will output something like, "Hi Dave!"  
 
 To pass the test, you will need to invoke greeterMaker and save the result to the variable called friendGreeter.  
 */
@@ -44,7 +44,8 @@ var friendGreeter;
 // 3. Track calls
 
 /* 
-Create a function that returns the date and the number of times you have called it.
+Create a function creator that returns a function, which returns the date and the number of times you have called the function. So that I can test it, assign the inner function, the one that returns the date and number of calls, to a variable called getDate.
+
 Your return object should look like the following: 
 
 {date: Tue May 23 2017 22:31:45 GMT-0500 (Central Daylight Time), calls: 1}
@@ -58,14 +59,47 @@ function dateFuncCreator() {
 
 }  
 
-// 4. Teams and Players
+var getDate;
 
-/* Create a function called playerFuncCreator that accepts a player's name and returns a function for an individual player. This player function, playerFunc, accepts a number representing points scored and returns the player's total points scored and the team's total points scored.
+// function dateFuncCreator() {
+//   var count = 0;
+//   return function() {
+//     return {date: new Date(), calls: ++count}
+//   }
+// }
+
+// 4. Score Tracker
+
+/* Create a function called scoreTrackerCreator that accepts a player's name and returns a function for an individual player. This player function, scoreTracker, accepts a number representing points scored in a game and returns the player's total points scored.
 */
 
+function scoreTrackerCreator() {
+  // Finish this function
+  
+  return
+}
 
-// 5. Data Sharing
+// 5. Family Plan Tracker
 
-/* Deduct minutes from individual and family. 
+/* 
+Create a function clled familyPlanTrackerCreator. This function accepts two arguments, an array of names and a number of total minutes. 
+
 */
 
+function familyPlanTrackerCreator() {
+  // Finish this function
+  return 
+}
+
+
+// 6. Factory Function
+
+/*
+Create a factory function called playerCreator. In the factory function, create a health variable with a value of 100 and a tools variable with a value of an empty array.
+
+Return an object with five methods, getHealth, lowerHealth, getTools, addTool, and removeTool. These methods should return the values of the variables they are modifying or retrieving.
+
+And lowerHealth should lower the health by one point on each call.
+*/
+
+// Code here
