@@ -16,9 +16,9 @@ function outerFunc() {
   }
 }
 // Code here
-var preserveScope;
+var preserveScope = outerFunc();
 
-var preservedScope;
+var preservedScope = preserveScope();
 
 
 // 2. Friend Greeter 
@@ -35,11 +35,13 @@ To pass the test, you will need to invoke greeterMaker and save the result to th
 
 function greeterMaker(name) {
   // Make this function return another function to greet that friend by name. 
-  return
-
+  return function() {
+    return "Hi " + name + "!"
+  }
+ 
 }
 
-var friendGreeter;
+var friendGreeter = greeterMaker("Guy");
 
 
 
@@ -59,11 +61,13 @@ function dateFuncCreator() {
   var count = 0;
 
   // Finish this function.
-  return 
-
+  return function() {
+    return {date: new Date(), calls: ++count}
+  }
+ 
 }  
 
-var getDate;
+var getDate = dateFuncCreator();
 
 
 // 4. Score Tracker
@@ -73,8 +77,11 @@ var getDate;
 
 function scoreTrackerCreator() {
   // Finish this function
-  
-  return
+  var totalPoints = 0;
+  return function(pointsToAdd) {
+    totalPoints += pointsToAdd
+    return totalPoints
+  }
 }
 
 // 5. Family Plan Tracker
@@ -82,11 +89,26 @@ function scoreTrackerCreator() {
 /* 
 Create a function clled familyPlanTrackerCreator. This function accepts two arguments, an array of names and a number of total minutes. 
 
+Create a family object which includes a total property with a value equal to the total minutes passed in. 
+
+Add a property to the family object for each name in the names array. (The property name will be the name of the family member.) Assign each of these properties a value of 0 (because they haven't used any minutes yet.)
+
+Return a function which accepts the name of a family member and the number of minutes used by that family member. Update the family object by adding the minutes to that family member's minutes used (the property of the family object with that member's name) and by subtracting the minutes used from the total minutes remaining (the total property of the family object).
+
 */
 
-function familyPlanTrackerCreator() {
+function familyPlanTrackerCreator(names, totalMinutes) {
   // Finish this function
-  return 
+  var family = {total: totalMinutes}
+  for (var name of names) {
+    // Create a property for each name in the array and assign it a value of 0
+    family[name] = 0;
+  }
+  return function(name, minutesUsed) {
+    family[name] += minutesUsed;
+    family.total -= minutesUsed;
+    return family;
+  }
 }
 
 
@@ -101,3 +123,44 @@ And lowerHealth should lower the health by one point on each call.
 */
 
 // Code here
+function playerFactory() {
+  var health = 100;
+  var tools = []
+
+  function getHealth() {
+    return health;
+  }
+
+  function lowerHealth() {
+    health--;
+    return health
+  }
+
+  function getTools() {
+    return tools;
+  }
+
+  function addTool(tool) {
+    tools.push(tool)
+    return tools;
+  }
+
+  function removeTool(tool) {
+    tools.splice(tools.indexOf(tool), 1)
+    return tools;
+  }
+
+  return {
+    getHealth, lowerHealth, getTools, addTool,removeTool
+  }
+}
+
+var player = playerFactory()
+player.lowerHealth()
+player.addTool("axe")
+player.addTool('pick')
+player.addTool("stake")
+player.removeTool("axe")
+console.log(player.getTools())
+console.log(player.getHealth())
+
